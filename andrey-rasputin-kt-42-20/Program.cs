@@ -3,6 +3,7 @@ using NLog;
 using andrey_rasputin_kt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using andrey_rasputin_kt_42_20.ServiceInterfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
@@ -20,6 +21,8 @@ try
 
     builder.Services.AddDbContext<PrepodDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
