@@ -1,5 +1,7 @@
 ﻿
 
+using System.Text.RegularExpressions;
+
 namespace andrey_rasputin_kt_42_20.Models
 {
     public class Prepod
@@ -10,6 +12,10 @@ namespace andrey_rasputin_kt_42_20.Models
         public string? MiddleName { get; set; }
         public string? Telephone { get; set; }
         public string? Mail { get; set; }
+        public bool IsValidMail()
+        {
+            return Regex.Match(Mail, @"^((\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)\\s*[;]{0,1}\\s*)+$").Success;
+        }
         public int KafedraId { get; set; }
         public int DegreeId { get; set; }
         public Kafedra? Kafedra { get; set; }
