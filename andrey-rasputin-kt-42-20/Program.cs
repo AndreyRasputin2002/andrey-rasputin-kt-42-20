@@ -4,6 +4,7 @@ using andrey_rasputin_kt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using andrey_rasputin_kt_42_20.ServiceInterfaces;
+using andrey_rasputin_kt_42_20.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
@@ -32,6 +33,7 @@ try
         app.UseSwaggerUI();
     }
 
+    app.UseMiddleware<ExceptionHandlerMiddleware>();
     app.UseAuthorization();
     app.MapControllers();
     app.Run();
