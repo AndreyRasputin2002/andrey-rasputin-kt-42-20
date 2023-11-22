@@ -82,7 +82,7 @@ namespace andrey_rasputin_kt_42_20.Test
                     Telephone = "9999",
                     Mail = "mem@gmail.com",
                     KafedraId = 1,
-                    DegreeId = 2
+                    DegreeId = 1
                 },
                 new Prepod
                 {
@@ -92,7 +92,7 @@ namespace andrey_rasputin_kt_42_20.Test
                     Telephone = "99991",
                     Mail = "mem1@gmail.com",
                     KafedraId = 2,
-                    DegreeId = 2
+                    DegreeId = 1
                 }
             };
             await ctx.Set<Prepod>().AddRangeAsync(prepods);

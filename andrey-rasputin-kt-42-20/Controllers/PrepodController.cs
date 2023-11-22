@@ -36,7 +36,20 @@ namespace andrey_rasputin_kt_42_20.Controllers
         {
             if (!ModelState.IsValid)
             {
+                
                 return BadRequest(ModelState);
+            }
+
+            var gr = _context.Kafedra.FirstOrDefault(g => g.KafedraId == prepod.KafedraId);
+            if (gr != null)
+            {
+                prepod.Kafedra = gr;
+            }
+
+            var deg = _context.Degree.FirstOrDefault(d => d.DegreeId == prepod.DegreeId);
+            if (deg != null)
+            {
+                prepod.Degree = deg;
             }
 
             _context.Prepod.Add(prepod);
